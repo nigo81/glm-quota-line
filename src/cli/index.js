@@ -129,12 +129,15 @@ export async function main() {
       ? normalizeContextWindow(statusLineInput)
       : null;
 
+    const modelName = statusLineInput?.model?.display_name || "";
+
     process.stdout.write(
       `${formatStatus(quotaStatus, {
         displayMode: config.displayMode,
         style: config.style,
         theme: config.theme,
-        ctxModel
+        ctxModel,
+        modelName
       })}\n`
     );
   } catch {
